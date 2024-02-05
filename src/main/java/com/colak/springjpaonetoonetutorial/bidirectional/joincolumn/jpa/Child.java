@@ -11,14 +11,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "address")
+@Table(name = "child")
 @Getter
 @Setter
-public class Address {
+public class Child {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "address")
-    private Employee employee;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "child")
+    private Mother mother;
 }

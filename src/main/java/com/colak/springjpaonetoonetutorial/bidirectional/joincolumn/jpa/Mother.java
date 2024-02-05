@@ -11,17 +11,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "mother")
 @Getter
-public class Employee {
+public class Mother {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /**
-     * employee table: addrs_id column is foreign key for address table : id column
-     */
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addrs_id", referencedColumnName = "id")
-    private Address address;
+    @JoinColumn(name = "child_id", referencedColumnName = "id")
+    private Child child;
 }
