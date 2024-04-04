@@ -19,6 +19,7 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    // Mother is saved first
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "child")
     private Mother mother;
 }
