@@ -14,3 +14,16 @@ ALTER TABLE IF EXISTS mother DROP CONSTRAINT IF EXISTS child_id_fk;
 ALTER TABLE IF EXISTS mother ADD CONSTRAINT child_id_uq UNIQUE (child_id);
 ALTER TABLE IF EXISTS mother ADD CONSTRAINT child_id_fk FOREIGN KEY (child_id) REFERENCES child;
 
+CREATE TABLE courses
+(
+    id    BIGINT PRIMARY KEY,
+    title VARCHAR(255)
+);
+
+CREATE TABLE course_details
+(
+    id          BIGINT PRIMARY KEY,
+    description TEXT,
+    CONSTRAINT fk_course FOREIGN KEY (id) REFERENCES courses (id)
+);
+
