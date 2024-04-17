@@ -1,4 +1,4 @@
-package com.colak.springjpaonetoonetutorial.bidirectional.joincolumn.jpa;
+package com.colak.springjpatutorial.bidirectional.joincolumn.jpa;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -12,6 +12,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "child")
+
 @Getter
 @Setter
 public class Child {
@@ -19,7 +20,9 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // Mother is saved first
+    // Child is saved first
+    // mappedBy determines the owning side. The owning side is where the foreign key column lives in the database.
+    // Mother is the owning side. Child can not be deleted we need to delete the mother first
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "child")
     private Mother mother;
 }
