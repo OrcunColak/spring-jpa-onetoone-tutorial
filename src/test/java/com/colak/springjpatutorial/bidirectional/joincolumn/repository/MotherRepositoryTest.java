@@ -5,6 +5,7 @@ import com.colak.springjpatutorial.bidirectional.joincolumn.jpa.Mother;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ class MotherRepositoryTest {
     private MotherRepository repository;
 
     @Test
+    @Transactional(readOnly = true)
     void findByChildId() {
         // Child is saved first, then mother
         Mother mother = new Mother();

@@ -7,6 +7,5 @@ import java.util.Optional;
 
 public interface MotherRepository extends JpaRepository<Mother, Integer> {
 
-    // Custom method to get Mother by Child id
-    Optional<Mother> findByChildId(Long productId);
+    Optional<Mother> findByChildId(Long id);
 }
